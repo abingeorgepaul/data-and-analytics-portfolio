@@ -1,199 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abin Paul | Data Engineer Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Icons</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-jQ2tS6+DqF1o+0JZkRyyRYZJX+sZ7l1i2K9j6gtrJh6Qh6sMZqkShU+w13Z+5iYPO5ZfckRZZsQ+0t4CPj2Tjw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome 6 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-8v6Jz6XWdYN+p9I0z5fovczbVw+7QfF6y3+bkKBGqvSx4M/jVn3kP5UuS1z5Vk+z2oZ3rZk+4FcmV4+K9bVb8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: 'Roboto', sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
-
-    :root {
-      --primary: #00f0ff;
-      --accent: #6bf0ff;
-      --card-bg: rgba(20,20,20,0.6);
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
     }
 
-    a { text-decoration: none; color: inherit; }
-
-    /* Header */
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
-      padding: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Social Icons */
     .social-icons {
       position: fixed;
       top: 20px;
       right: 20px;
       display: flex;
-      gap: 1rem;
-      z-index: 999;
+      gap: 15px;
     }
+
     .social-icons a {
-      font-size: 1.8rem;
-      color: var(--accent);
-      transition: color 0.3s, transform 0.3s;
+      color: #333;
+      font-size: 24px;
+      text-decoration: none;
+      transition: all 0.3s;
     }
+
     .social-icons a:hover {
-      color: var(--primary);
-      transform: scale(1.2);
-    }
-
-    /* Name & Summary */
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    header p {
-      font-size: 1.25rem;
-      color: var(--accent);
-      max-width: 700px;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    /* Skills */
-    #skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      justify-items: center;
-      width: 100%;
-    }
-    .skill-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,255,255,0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      width: 120px;
-      text-align: center;
-    }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(0,255,255,0.4);
-    }
-    .skill-card i {
-      font-size: 2rem;
-      color: var(--primary);
-    }
-    .skill-card span {
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: #fff;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    /* Projects */
-    #projects {
-      margin-top: 3rem;
-    }
-    #projects h2 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    #projects ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      list-style: none;
-      padding: 0;
-    }
-    #projects li {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    #projects li:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 35px rgba(0,255,255,0.4);
-    }
-    #projects li a { color: var(--accent); font-weight: 500; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      header p { font-size: 1.1rem; }
-      .skill-card { width: 100px; font-size: 0.85rem; }
-      .social-icons { font-size: 1.5rem; gap: 0.8rem; }
+      color: #1DA1F2; /* Twitter blue for demo */
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <a href="mailto:abinpaul@example.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/abinpaul" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/abinpaul" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-
-    <!-- Name and Summary -->
-    <h1>Abin Paul</h1>
-    <p>
-      Software Engineer with a passion for data-driven solutions, specializing in building scalable data pipelines, integrating APIs, and designing analytics-ready data models. Experienced in applying software engineering best practices—modular design, version control, testing, and optimization—to transform raw data into actionable insights. Proficient in Python, SQL, Snowflake, and modern cloud tools, with a strong focus on delivering reliable, maintainable, and high-performance data solutions.
-    </p>
-
-    <!-- Skills -->
-    <div id="skills">
-      <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
-      <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
-      <div class="skill-card"><i class="fas fa-server"></i><span>Snowflake</span></div>
-      <div class="skill-card"><i class="fas fa-project-diagram"></i><span>Airflow</span></div>
-      <div class="skill-card"><i class="fas fa-bolt"></i><span>Kafka</span></div>
-      <div class="skill-card"><i class="fas fa-chart-line"></i><span>Power BI</span></div>
-      <div class="skill-card"><i class="fab fa-aws"></i><span>AWS S3</span></div>
-      <div class="skill-card"><i class="fab fa-microsoft"></i><span>Azure Data Factory</span></div>
-      <div class="skill-card"><i class="fas fa-code"></i><span>REST APIs</span></div>
-      <div class="skill-card"><i class="fas fa-code-branch"></i><span>Git</span></div>
-    </div>
-  </header>
-
-  <main>
-    <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Ecommerce Data Pipeline</strong><br>
-          <a href="projects/project1_nyc_taxi_pipeline/README.md">View Project</a>
-        </li>
-      </ul>
-    </section>
-  </main>
+  <div class="social-icons">
+    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
 
 </body>
 </html>
