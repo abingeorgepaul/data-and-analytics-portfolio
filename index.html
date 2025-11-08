@@ -1,47 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Icons</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abin Paul</title>
 
-  <!-- Font Awesome 6 CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-8v6Jz6XWdYN+p9I0z5fovczbVw+7QfF6y3+bkKBGqvSx4M/jVn3kP5UuS1z5Vk+z2oZ3rZk+4FcmV4+K9bVb8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top right, #0a0f1c, #111827, #000);
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: left;
+      padding-left: 50px;
+      box-sizing: border-box;
     }
 
+    /* Particles background */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Floating animations */
+    @keyframes floatUpDown {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes floatSideToSide {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(3px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Header roles */
+    .header-roles {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-weight: 500;
+      font-size: 1rem;
+      z-index: 10;
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+
+    .header-roles span {
+      margin: 0 5px;
+    }
+
+    /* Social icons */
     .social-icons {
       position: fixed;
       top: 20px;
       right: 20px;
       display: flex;
       gap: 15px;
+      z-index: 10;
+      animation: floatUpDown 3s ease-in-out infinite alternate;
     }
 
-    .social-icons a {
-      color: #333;
-      font-size: 24px;
-      text-decoration: none;
-      transition: all 0.3s;
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      filter: invert(100%);
+      transition: transform 0.3s;
     }
 
-    .social-icons a:hover {
-      color: #1DA1F2; /* Twitter blue for demo */
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Main content */
+    .content {
+      max-width: 600px;
+      margin-left: 150px;
+      z-index: 5;
+      animation: floatUpDown 4s ease-in-out infinite alternate;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: floatSideToSide 6s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      line-height: 1.6;
+      font-family: 'Roboto', sans-serif;
+      animation: floatSideToSide 5s ease-in-out infinite alternate;
+      color: #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+      body { padding-left: 20px; }
+      h1 { font-size: 2.5rem; }
+      p { font-size: 1.1rem; }
+      .header-roles { font-size: 0.9rem; }
+      .content { margin-left: 40px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="social-icons">
-    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-  </div>
+<!-- Particle background -->
+<div id="particles-js"></div>
+
+<!-- Top-left roles -->
+<div class="header-roles">
+  <span>API Engineer</span> | <span>Data Engineer</span> | <span>Data Analyst</span>
+</div>
+
+<!-- Social icons -->
+<div class="social-icons">
+  <a href="https://www.linkedin.com" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+  </a>
+  <a href="mailto:your-email@gmail.com">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+  </a>
+  <a href="https://github.com" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+  </a>
+</div>
+
+<!-- Content -->
+<div class="content">
+  <h1>Abin Paul</h1>
+  <p>Enthusiastic Data Engineer and Analyst with a passion for building scalable data pipelines and integrations aligned with modern cloud platforms. Experienced in developing APIs and data solutions that power analytic dashboards and drive meaningful business decisions. A seasoned API Engineer and active contributor to digital transformation initiatives, continually evolving with industry trends — now taking strategic steps toward Machine Learning and AI innovation..</p>
+</div>
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#00bcd4" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#00bcd4",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out"
+      }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": { "enable": true, "mode": "repulse" },
+        "onclick": { "enable": false },
+        "resize": true
+      }
+    },
+    "retina_detect": true
+  });
+</script>
 
 </body>
 </html>
