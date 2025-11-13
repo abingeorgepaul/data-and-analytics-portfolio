@@ -16,16 +16,27 @@
       font-family: 'Montserrat', sans-serif;
       background: radial-gradient(circle at top right, #0a0f1c, #111827, #000);
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       text-align: left;
-      padding-left: 50px;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    /* Particles background */
+    /* Scroll progress bar */
+    #scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #00bcd4;
+      z-index: 20;
+      width: 0%;
+    }
+
+    /* Particle background */
     #particles-js {
       position: fixed;
       top: 0;
@@ -67,7 +78,7 @@
     .social-icons {
       position: fixed;
       top: 20px;
-      right: 20px;
+      right: 30px;
       display: flex;
       gap: 15px;
       z-index: 10;
@@ -87,14 +98,16 @@
 
     /* Main content */
     .content {
-      max-width: 600px;
+      max-width: 700px;
+      margin-top: 150px;
       margin-left: 150px;
       z-index: 5;
       animation: floatUpDown 4s ease-in-out infinite alternate;
+      position: relative;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin: 0;
       animation: floatSideToSide 6s ease-in-out infinite alternate;
     }
@@ -108,16 +121,181 @@
       color: #e0e0e0;
     }
 
+    /* Links hover glow */
+    a {
+      text-decoration: none;
+      color: #00bcd4;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #00bcd4;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skills Section */
+    .skills {
+      color: #fff;
+      padding: 80px 10%;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skills h2 {
+      font-size: 2.0rem;
+      margin-bottom: 40px;
+      border-left: 5px solid #00c6ff;
+      padding-left: 10px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .skill-card h3 {
+      color: #00c6ff;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    /* Career Journey Section */
+    .career {
+      padding: 80px 10%;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      width: 100%;
+      color: #fff;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+    }
+
+    .career h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      border-left: 5px solid #00c6ff;
+      padding-left: 10px;
+    }
+
+    .timeline {
+      border-left: 2px solid #00c6ff;
+      margin-left: 20px;
+      padding-left: 30px;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+    }
+
+    .timeline-item h3 {
+      color: #00c6ff;
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .timeline-item span {
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    .timeline-item p {
+      color: #ddd;
+      margin-top: 5px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9rem;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0,188,212,0.3);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,188,212,0.5);
+    }
+
+    /* For Firefox */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,188,212,0.3) rgba(0,0,0,0.1);
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      body { padding-left: 20px; }
+      .content { margin-left: 30px; margin-top: 120px; max-width: 90%; }
       h1 { font-size: 2.5rem; }
       p { font-size: 1.1rem; }
-      .header-roles { font-size: 0.9rem; }
-      .content { margin-left: 40px; }
+      .skills h2, .career h2 { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .content { margin-left: 20px; margin-top: 100px; max-width: 90%; }
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      .skills, .career { padding: 60px 5%; }
     }
   </style>
 </head>
 <body>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-bar"></div>
 
 <!-- Particle background -->
 <div id="particles-js"></div>
@@ -129,29 +307,95 @@
 
 <!-- Social icons -->
 <div class="social-icons">
-  <a href="https://www.linkedin.com" target="_blank">
+  <a href="https://www.linkedin.com/in/abin-george-paul" target="_blank">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
   </a>
-  <a href="mailto:your-email@gmail.com">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
-  </a>
-  <a href="https://github.com" target="_blank">
+  <a href="https://github.com/abingeorgepaul/data-engineering-projects" target="_blank">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
   </a>
+  <a href="mailto:abinpaul18@gmail.com">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+  </a>
+  <a href="assets/resume/Abin-Paul-Resume.pdf">
+	<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/download.svg" alt="Resume">
+</a>
 </div>
 
-<!-- Content -->
-<div class="content">
+<!-- Main content -->
+<div class="content fade-in">
   <h1>Abin Paul</h1>
-  <p>Enthusiastic Data Engineer and Analyst with a passion for building scalable data pipelines and integrations aligned with modern cloud platforms. Experienced in developing APIs and data solutions that power analytic dashboards and drive meaningful business decisions. A seasoned API Engineer and active contributor to digital transformation initiatives, continually evolving with industry trends — now taking strategic steps toward Machine Learning and AI innovation..</p>
+  <p>Enthusiastic Data Engineer and Analyst with a passion for building scalable data pipelines and integrations aligned with modern cloud platforms. Experienced in developing APIs and data solutions that power analytic dashboards and drive meaningful business decisions. A seasoned API Engineer and active contributor to digital transformation initiatives, continually evolving with industry trends — now taking strategic steps toward Machine Learning and AI innovation.</p>
 </div>
+
+<!-- Skills Section -->
+<section class="skills fade-in">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Data Pipeline</h3>
+      <p>Snowflake<br>Airflow<br>DBT<br>ETL/ELT Design</p>
+    </div>
+	<div class="skill-card">
+      <h3>Analytics & Visualization</h3>
+      <p>Power BI<br>D3.js</p>
+    </div>
+	<div class="skill-card">
+      <h3>Databases</h3>
+      <p>MySQL<br>PostgreSQL<br>MongoDB</p>
+    </div>
+    <div class="skill-card">
+      <h3>Cloud, CI/CD & DevOps</h3>
+      <p>Jenkins<br>GitHub<br>Azure<br>Docker<br>Maven<br>Kubernetes</p>
+    </div>
+    <div class="skill-card">
+      <h3>Programming Languages</h3>
+      <p>Python<br>Java<br>Spring Boot<br>JavaScript<br>GatewayScript</p>
+    </div>
+    <div class="skill-card">
+      <h3>Middleware & APIs</h3>
+      <p>REST<br>SOAP<br>IBM API Connect<br>IBM Integration Bus<br>RedHat JBoss Fuse ESB<br>Active MQ<br>RedHat Openshift</p>
+    </div>
+  </div>
+</section>
+
+<!-- Career Journey Section -->
+<section class="career fade-in">
+  <h2>Career Journey</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Aspiring Data Engineer/Analyst</h3>
+      <span>2025 – Present</span>
+      <p>Designing and maintaining cloud-native data pipelines and analytics using Python, Snowflake, DBT and Power BI. Integrating REST APIs for real-time data ingestion and transformation.</p>
+    </div>
+	<div class="timeline-item">
+      <h3>Masters, Data Science</h3>
+      <span>2023 – 2024</span>
+      <p>Learning skills for managing and analyzing large, complex data sets – sometimes called Big Data. And the modern methods and tools for visually exploring the data.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>IT Analyst</h3>
+      <span>Tata Consultancy Services 2016 - 2022</span>
+      <p>Engineered and managed data-driven API ecosystems using IBM API Connect, Java, and Spring Boot to enable seamless data exchange across distributed systems. Implemented real-time data transformations and message streaming using Kafka, WebSphere MQ, and ActiveMQ. Supported enterprise data integration and modernization initiatives through CI/CD, DevOps, and cloud-based solutions</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Bachelor of Engineering, Computer Science & Engineering</h3>
+      <span>Kalpataru Institute of Technology, katakana 2011 – 2015</span>
+      <p>Developed strong fundamentals in engineering principles, problem-solving, and software design. Applied core concepts of software engineering and the SDLC while gaining proficiency in C, C++, Java, CSS and HTML</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  
+</footer>
 
 <!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+      "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
       "color": { "value": "#00bcd4" },
       "shape": { "type": "circle" },
       "opacity": { "value": 0.5 },
@@ -181,6 +425,23 @@
     },
     "retina_detect": true
   });
+
+  // Scroll progress bar
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / height) * 100;
+    document.getElementById("scroll-bar").style.width = scrolled + "%";
+  });
+
+  // Fade-in scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 </body>
